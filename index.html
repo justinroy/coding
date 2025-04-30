@@ -5,78 +5,110 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>All About Coding</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <!--  FUN GOOGLE FONT  -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ============  COLOR + TYPE SET-UP  ============ */
     :root{
-      --bg: #004850;          /* deep teal                         */
-      --accent: #00d1d1;      /* cyan accent for headings/icons    */
-      --text: #f5faff;        /* near-white body text              */
-      --card: #025a67;        /* slightly lighter than bg          */
+      --bg1:#ff8a00;
+      --bg2:#e52e71;
+      --bg3:#0076ff;
+      --card:#FFFFFF20;      /* translucent white card */
+      --text:#fff;
+      --accent:#fff;
     }
-
-    *{box-sizing:border-box;margin:0;padding:0;}
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
-      font-family:"Montserrat",sans-serif;
-      line-height:1.55;
-      background:var(--bg);
+      font-family:'Baloo 2',cursive;
       color:var(--text);
-      padding:2rem 0;
+      min-height:100vh;
       display:flex;
       flex-direction:column;
       align-items:center;
+      padding:3rem 1rem;
+      text-shadow:0 2px 3px rgba(0,0,0,.25);
+      /*  Animated rainbow gradient  */
+      background:linear-gradient(60deg,var(--bg1),var(--bg2),var(--bg3));
+      background-size:400% 400%;
+      animation:moveBg 15s ease infinite;
+    }
+    @keyframes moveBg{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
     }
 
+    /* ============  HEADINGS  ============ */
     h1,h2{
       text-align:center;
-      color:var(--accent);
       margin-bottom:1rem;
-      text-transform:uppercase;
+    }
+    h1{
+      font-size:2.6rem;
       letter-spacing:1px;
+      background:linear-gradient(90deg,#fff,#ffd700,#00eaff,#ff4dff);
+      -webkit-background-clip:text;
+      color:transparent;
+      animation:hue 10s linear infinite;
     }
-    h1{font-size:2.2rem;}
-    h2{font-size:1.4rem;}
+    @keyframes hue{100%{filter:hue-rotate(360deg)}}
+    h2{font-size:1.6rem;}
 
+    /* ============  SECTIONS / CARDS  ============ */
     section{
-      width:min(90ch,90%);
-      margin-bottom:2.5rem;
-      background:var(--card);
+      width:min(85ch,95%);
       padding:1.8rem 2rem;
-      border-radius:.75rem;
-      box-shadow:0 6px 12px rgba(0,0,0,.25);
+      margin:1.7rem 0;
+      background:var(--card);
+      border-radius:1rem;
+      backdrop-filter:blur(6px);
+      box-shadow:0 10px 18px rgba(0,0,0,.35);
+      transition:transform .25s ease;
+    }
+    section:hover{transform:rotate(-1deg) translateY(-6px)}
+    .grid{display:grid;gap:2rem}
+    @media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+
+    /* ============  LISTS  ============ */
+    ul{margin-left:0.8rem}
+    li{
+      margin:.4rem 0;
+      list-style:none;
+      position:relative;
+      padding-left:2rem;
+    }
+    li::before{
+      content:"💖";
+      position:absolute;
+      left:0;
+      top:0;
+      font-size:1.2rem;
+      transform:rotate(-10deg);
     }
 
-    /* first big two-column section */
-    .grid{
-      display:grid;
-      gap:2rem;
-    }
-    @media(min-width:700px){
-      .grid{grid-template-columns:1fr 1fr;}
-    }
-
-    ul{margin-left:1rem;}
-    li{margin:.35rem 0;}
-
-    /* little desk-style accents */
-    .kbd{
-      font-weight:600;
-      color:var(--accent);
-    }
     footer{
-      font-size:.85rem;
       text-align:center;
+      font-size:.85rem;
+      margin-top:auto;
       opacity:.7;
-      margin-top:1rem;
     }
-    a{color:var(--accent);}
+    a{color:var(--accent)}
+    /* Little link underline animation */
+    a{position:relative}
+    a::after{
+      content:"";
+      position:absolute;left:0;bottom:-2px;
+      width:0;height:2px;background:var(--accent);
+      transition:width .3s ease;
+    }
+    a:hover::after{width:100%}
   </style>
 </head>
 <body>
 
   <header>
-    <h1>All About Coding</h1>
+    <h1 onclick="shootConfetti()">All About Coding</h1>
   </header>
 
   <!-- WHAT + PROCESS -->
@@ -84,25 +116,22 @@
     <div>
       <h2>What can coding do?</h2>
       <ul>
-        <li>Coding can write, edit, and put text</li>
-        <li>Can repeat tasks over and over automatically</li>
-        <li>Makes electronic cars, robots &amp; drones tick</li>
-        <li>Every software program is made by code</li>
-        <li>Using digital tools = interacting with data = using code</li>
-        <li>Software tools work with data that includes code</li>
-        <li>Building apps <span class="kbd">definitely</span> involves code</li>
+        <li>Write, edit, and style text</li>
+        <li>Repeat tasks automatically (no chores!)</li>
+        <li>Run electronic cars, robots &amp; drones</li>
+        <li>Every software program is powered by code</li>
+        <li>Using digital tools = working with code</li>
+        <li>Apps? 100 % code behind the scenes</li>
       </ul>
     </div>
-
     <div>
       <h2>The coding process</h2>
       <ul>
-        <li>Takes several steps</li>
-        <li>Can be hard for humans to read directly</li>
-        <li>Helps identify and solve problems</li>
-        <li>100+ major programming languages (and 700+ overall!)</li>
-        <li>Compilers &amp; interpreters turn human-friendly code into machine code</li>
-        <li>Keep tweaking &amp; testing until it works</li>
+        <li>Break big ideas into little steps</li>
+        <li>Find and fix problems (called bugs)</li>
+        <li>100+ popular languages (700 overall!)</li>
+        <li>Compilers translate human code → machine code</li>
+        <li>Test, tweak, repeat … until it works!</li>
       </ul>
     </div>
   </section>
@@ -111,13 +140,10 @@
   <section>
     <h2>Coding careers</h2>
     <ul>
-      <li>Many students major in code-related subjects in college</li>
-      <li>Some create websites, others build software</li>
-      <li>Computer Science is the most common degree</li>
-      <li>Programming is one of the fastest-growing U.S. careers</li>
-      <li>Some write code that helps people use computers more easily</li>
-      <li>U.S. coders can earn&nbsp;$49 k – $94 k&nbsp;per year (role-dependent)</li>
-      <li>There’s big money in many coding jobs</li>
+      <li>Lots of students major in Computer Science</li>
+      <li>Create websites, build software—endless choices</li>
+      <li>Programming = one of the fastest-growing careers</li>
+      <li>Coders can earn&nbsp;$49 k – $94 k per year (or more!)</li>
     </ul>
   </section>
 
@@ -126,28 +152,52 @@
     <h2>Coding jobs</h2>
     <ul>
       <li>Web Developer</li>
-      <li>Network &amp; Computer Administrator</li>
-      <li>Business Intelligence Analyst</li>
-      <li>Computer Programmer</li>
-      <li>Computer Systems Analyst</li>
-      <li>UI / UX Designer</li>
-      <li>Data Scientist</li>
-      <li>Database Administrator</li>
-      <li>Information Security Analyst</li>
-      <li>Software Developer</li>
       <li>Game Developer</li>
-      <li>Cloud Solution Architect</li>
+      <li>UI/UX Designer</li>
+      <li>Data Scientist</li>
       <li>Cyber-security Engineer</li>
       <li>Mobile App Developer</li>
       <li>Machine-Learning Engineer</li>
+      <li>…and tons more!</li>
     </ul>
   </section>
 
   <footer>
-    Made with &lt;/&gt; by you • Illustrations removed for simplicity — add your own SVGs or
-    icons anytime.
-    <br>
-    <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">Host via GitHub Pages</a>
+    Click the rainbow title for confetti magic ✨ • Deployed with <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
   </footer>
+
+
+  <!-- =====  CONFETTI MINI-SCRIPT  ===== -->
+  <script>
+  /*  Tiny confetti burst on demand
+      (adapted from https://jsfiddle.net/amitmerchant/n2hy6o0p/ ) */
+  function shootConfetti(){
+    const colors=["#fff400","#14fcce","#ff60e6","#f25c54","#00b3ff"];
+    const count=150;
+    const defaults={origin:{y:.6}};
+    function fire(particleRatio,opts){
+      confetti(Object.assign({},defaults,opts,{
+        particleCount:Math.floor(count*particleRatio)
+      }));
+    }
+    fire(.25,{spread:26,startVelocity:55,colors});
+    fire(.2,{spread:60});
+    fire(.35,{spread:100,decay:.91,scalar:.8,colors});
+    fire(.1,{spread:120,startVelocity:25,decay:.92,scalar:1.2});
+    fire(.1,{spread:120,startVelocity:45});
+  }
+
+  /*  Adds the confetti script only if it
+      isn't already present (GitHub Pages caches) */
+  (function(){
+    if(!window.confetti){
+      const s=document.createElement('script');
+      s.src='https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
+      s.async=true;
+      document.head.appendChild(s);
+    }
+  })();
+  </script>
 </body>
 </html>
+
